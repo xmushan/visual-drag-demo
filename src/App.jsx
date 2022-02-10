@@ -1,8 +1,9 @@
 import s from './app.scss'
 function App() {
   return (
-    <div className={s.app}>
+    <div className={s.title}>
       qq
+      <p className={s.test}>111</p>
     </div>
   );
 }
