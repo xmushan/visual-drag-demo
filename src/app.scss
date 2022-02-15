@@ -1,6 +1,10 @@
-.title{
-    color: red;
-    .test{
-        font-size: large;
+.home {
+    height: 100vh;
+    background: #fff;
+    header {
+        height: 64px;
+        line-height: 64px;
+        background: #fff;
+        border-bottom: 1px solid #ddd;
     }
 }
