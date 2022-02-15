@@ -1,5 +1,6 @@
 import s from './app.scss'
-function App() {
+import { connect } from 'react-redux'
+function App(props) {
   return (
     <div className={s.title}>
       qq
@@ -8,4 +9,10 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    ...state
+  }
+}
+
+export default connect(mapStateToProps)(App);
