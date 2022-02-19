@@ -1,0 +1,13 @@
+.text {
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    white-space: normal;
+    word-break: break-all;
+}
+.textarea {
+    overflow: hidden;
+    resize: none,
+}
+.disabled {
+    border: none;
+}

@@ -1,7 +1,9 @@
+import s from './index.scss'
+
 function RButton(props){
     const { btnText } = props
     return (
-        <button>{ btnText || '按钮'}</button>
+        <button className={s.btn} >{ btnText || '按钮'}</button>
     )
 }
 

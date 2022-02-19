@@ -1,0 +1,16 @@
+.componentList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+
+    .list {
+        width: 45%;
+        border: 1px solid #ddd;
+        cursor: grab;
+        margin-bottom: 10px;
+        text-align: center;
+        color: #333;
+        padding: 2px 5px;
+    }
+}
