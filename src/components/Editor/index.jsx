@@ -1,9 +1,27 @@
+import React from'react'
+import cn from 'classnames'
+import { connect } from 'react-redux'
+import Shape from './Shape'
 import s from './index.scss'
 
-function Editor(){
+function Editor(props){
+    const { canvasStyleData,componentData } = props
     return (
-        <div>Editor</div>
+        <div 
+            className={s.editor}
+            style={{ width:  canvasStyleData.width + 'px', height: canvasStyleData.height + 'px'}}
+        >
+            {/* 页面组件列表展示 */}
+            <Shape>
+                {
+                    componentData.map(item => {
+                        const { component: Component } = item
+                        return <Component key='1'/>
+                    })
+                }
+            </Shape>
+        </div>
     )
 }
 
-export default Editor
+export default  connect( state => state )(Editor)

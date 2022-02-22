@@ -16,21 +16,14 @@ const initialState = {
 
 function Reducer(state=initialState,action){
     switch(action.type){
-        case 'change': {
+        case 'addComponent': {
             return {
                 ...state,
-                ...action.params
-            }
-        }
-        case 'add': {
-            return {
-                ...state,
-                num: action.text
+                componentData: action.payload
             }
         }
         default: 
             return state
     }
 }
-
 export default Reducer
