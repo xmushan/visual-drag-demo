@@ -12,14 +12,19 @@ function Editor(props){
             style={{ width:  canvasStyleData.width + 'px', height: canvasStyleData.height + 'px'}}
         >
             {/* 页面组件列表展示 */}
-            <Shape>
-                {
+            {
                     componentData.map(item => {
                         const { component: Component } = item
-                        return <Component key='1'/>
+                        return (
+                            <Shape
+                                    key={item.id}
+                                    style={ item.style }
+                                >
+                                    <Component/>
+                            </Shape>
+                        )
                     })
                 }
-            </Shape>
         </div>
     )
 }
