@@ -6,7 +6,7 @@ function Shape(props){
     const { children,style } = props
     console.log(children)
     return (
-        <div style={style}>
+        <div className={cn(style,s.shape)} style={style}>
             {
                 React.Children.map(children,item=>{
                     return item
