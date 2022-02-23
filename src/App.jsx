@@ -11,11 +11,9 @@ import s from './app.scss'
 function App(props) {
   const { dispatch,componentData } = props
   const handleDrop = e => {
-
     const index = e.dataTransfer.getData('index')
     const newComponent = deepCopy(list[index])
     const newComponentData = deepCopy(componentData)
-    console.log(e,'ppp')
     newComponent.style.top = e.nativeEvent.offsetY
     newComponent.style.left = e.nativeEvent.offsetX
 
