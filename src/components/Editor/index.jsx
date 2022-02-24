@@ -5,7 +5,7 @@ import Shape from './Shape'
 import s from './index.scss'
 
 function Editor(props){
-    const { canvasStyleData,componentData } = props
+    const { canvasStyleData,componentData,curComponent } = props
     return (
         <div 
             className={s.editor}
@@ -13,12 +13,15 @@ function Editor(props){
         >
             {/* 页面组件列表展示 */}
             {
-                    componentData.map(item => {
+                    componentData.map((item,index) => {
                         const { component: Component } = item
                         return (
                             <Shape
                                     key={item.id}
                                     style={ item.style }
+                                    active={ item == curComponent }
+                                    element={item}
+                                    zIndex={index}
                                 >
                                     <Component/>
                             </Shape>

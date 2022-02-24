@@ -22,6 +22,12 @@ function Reducer(state=initialState,action){
                 componentData: action.payload
             }
         }
+        case 'selectComponent': {
+            return {
+                ...state,
+                ...action.payload
+            }
+        }
         default: 
             return state
     }

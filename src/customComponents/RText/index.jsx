@@ -2,20 +2,19 @@ import { connect } from 'react-redux'
 import cn from 'classnames'
 import s from './index.scss'
 function RText(props) {
-    const { value, editMode, changeInput } = props
+    const { value, changeInput,editMode } = props
     const handleChange = e => {
         const { value } = e.target
         changeInput(value)
     }
-    const TextArea = <textarea
-        value={value}
-        onChange={handleChange}
-        className={cn(s.text, s.textarea)}
-    />
     return (
-        <>
+        <div>
             {
-                editMode == 'edit' ? TextArea 
+                editMode == 'edit' ? <textarea
+                    value={value}
+                    onChange={handleChange}
+                    className={cn(s.text, s.textarea)}
+                /> 
                     : <div className={ cn(s.disabled,s.text) }>
                         {
                             value.split('\n').map((item,index) => (
@@ -24,8 +23,8 @@ function RText(props) {
                         }
                     </div>
             }
-        </>
+        </div>
     )
 }
 
-export default connect(state=> state )(RText)
+export default connect(state => state)(RText)

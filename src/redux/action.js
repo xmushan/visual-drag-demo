@@ -1,3 +1,4 @@
+
 function addComponent(payload){
     return {
         type: 'addComponent',
@@ -5,6 +6,14 @@ function addComponent(payload){
     }
 }
 
+function selectComponent(payload){
+    return {
+        type: 'selectComponent',
+        payload
+    }
+}
+
 export {
-    addComponent
+    addComponent,
+    selectComponent
 }
