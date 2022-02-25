@@ -15,7 +15,6 @@ function Shape(props){
         const payload = {
             curComponent: element,
             curComponentZIndex: zIndex,
-            editMode: 'review'
         }
         dispatch(selectComponent(payload))
     }

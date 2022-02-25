@@ -1,30 +1,37 @@
-import { connect } from 'react-redux'
+import React from 'react'
 import cn from 'classnames'
+import {store} from '@/redux/store'
 import s from './index.scss'
-function RText(props) {
-    const { value, changeInput,editMode } = props
-    const handleChange = e => {
-        const { value } = e.target
-        changeInput(value)
-    }
-    return (
-        <div>
-            {
-                editMode == 'edit' ? <textarea
-                    value={value}
-                    onChange={handleChange}
-                    className={cn(s.text, s.textarea)}
-                /> 
-                    : <div className={ cn(s.disabled,s.text) }>
-                        {
-                            value.split('\n').map((item,index) => (
-                                <div key={index}>{item}</div>
-                            ))
-                        }
-                    </div>
-            }
-        </div>
-    )
-}
 
-export default connect(state => state)(RText)
+class RText extends React.Component {
+
+    state = {
+        editMode: store.getState().editMode
+    }
+    handleChange = e => {
+        const { value } = e.target
+        this.props.changeInput(value)
+    }
+    render() {
+        const { value } = this.props
+        return (
+            <div>
+                {
+                    this.state.editMode == 'edit' ? <textarea
+                        value={value}
+                        onChange={this.handleChange}
+                        className={cn(s.text, s.textarea)}
+                    />
+                        : <div className={cn(s.disabled, s.text)}>
+                            {
+                                value.split('\n').map((item, index) => (
+                                    <div key={index}>{item}</div>
+                                ))
+                            }
+                        </div>
+                }
+            </div>
+        )
+    }
+}
+export default RText
