@@ -28,6 +28,12 @@ function Reducer(state=initialState,action){
                 ...action.payload
             }
         }
+        case 'setShapeStyle': {
+            return {
+                ...state,
+                componentData: action.payload
+            }
+        }
         default: 
             return state
     }

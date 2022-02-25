@@ -13,7 +13,15 @@ function selectComponent(payload){
     }
 }
 
+function setShapeStyle(payload){
+    return {
+        type: 'setShapeStyle',
+        payload
+    }
+}
+
 export {
     addComponent,
-    selectComponent
+    selectComponent,
+    setShapeStyle
 }
