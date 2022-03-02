@@ -34,6 +34,12 @@ function Reducer(state=initialState,action){
                 componentData: action.payload
             }
         }
+        case 'add': {
+            return {
+                ...state,
+                a: action.payload
+            }
+        }
         default: 
             return state
     }

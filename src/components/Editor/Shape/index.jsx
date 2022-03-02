@@ -29,6 +29,7 @@ function Shape(props) {
             curComponentZIndex: zIndex,
         }
         dispatch(selectComponent(payload))
+        if (!curComponent) return
         const pos = { ...defaultStyle }
         const startY = e.clientY
         const startX = e.clientX
@@ -66,7 +67,7 @@ function Shape(props) {
         document.addEventListener('mouseup', up)
     }
     return (
-        <div className={cn(s.shape, { 'active': active })} style={style} onMouseDown={handleMouseDown}>
+        <div className={cn(s.shape, active ? s.active: '' )} style={style} onMouseDown={handleMouseDown}>
             {
                 React.Children.map(children, item => item)
             }

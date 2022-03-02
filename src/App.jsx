@@ -31,7 +31,7 @@ function App(props) {
   return (
     <div className={s.home}>
       <header>
-        <Button>撤销</Button>
+        <Button onClick={() => { props.dispatch({type: 'add',payload: 'ppp'}) }}>撤销</Button>
         <Button>重做</Button>
       </header>
       <main>

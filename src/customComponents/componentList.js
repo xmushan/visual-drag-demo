@@ -16,8 +16,8 @@ const list = [
         animations: [],
         events: {},
         style: {
-            width: 200,
-            height: 33,
+            // width: 200,
+            // height: 33,
             fontSize: 14,
             fontWeight: 500,
             lineHeight: '',
