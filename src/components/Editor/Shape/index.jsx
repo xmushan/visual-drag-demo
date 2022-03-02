@@ -3,11 +3,22 @@ import { connect } from 'react-redux'
 import { selectComponent,setShapeStyle } from '@/redux/action'
 import cn from 'classnames'
 import s from './index.scss'
-import { deepCopy } from '@/utils/utils'
+import { deepCopy,findIndex } from '@/utils/utils'
 
 function Shape(props) {
 
-    const { dispatch, children, style, active, element, zIndex,curComponent,defaultStyle,componentData } = props
+    const { 
+        dispatch, 
+        children, 
+        style, 
+        active, 
+        element, 
+        zIndex,
+        curComponent,
+        defaultStyle,
+        componentData,
+        id
+    } = props
     const handleMouseDown = e => {
         if (element.icon != 'el-icon-edit') {
             e.preventDefault()
@@ -41,8 +52,9 @@ function Shape(props) {
             if (width) dComponent.style.width = width
             if (height) dComponent.style.height = height
             // TODO
+            const componentIndex = findIndex(id,'id',componentData)
             // 这个地方有问题 
-            dcomponentData[zIndex] = dComponent
+            dcomponentData[componentIndex] = dComponent
             dispatch(setShapeStyle(dcomponentData))
         }
         const up = () => {

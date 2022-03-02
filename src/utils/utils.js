@@ -1,4 +1,4 @@
-export function deepCopy(target) {
+function deepCopy(target) {
     if (typeof target == 'object') {
         const result = Array.isArray(target)? [] : {}
         for (const key in target) {
@@ -15,8 +15,24 @@ export function deepCopy(target) {
     return target
 }
 
-export function swap(arr, i, j) {
+function swap(arr, i, j) {
     const temp = arr[i]
     arr[i] = arr[j]
     arr[j] = temp
+}
+
+function findIndex(searchkey,attribute,arr){
+    if (!arr.length) return -1
+    for (let i =0;i<arr.length;i++){
+        if (searchkey == arr[i][attribute]){
+            return i
+        }
+    }
+}
+
+
+export {
+    swap,
+    deepCopy,
+    findIndex
 }

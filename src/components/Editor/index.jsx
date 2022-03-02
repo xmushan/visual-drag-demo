@@ -18,6 +18,7 @@ function Editor(props){
                         return (
                             <Shape
                                     key={item.id}
+                                    id={item.id}
                                     style={ item.style }
                                     defaultStyle={ item.style }
                                     active={ item == curComponent }
