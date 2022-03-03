@@ -19,16 +19,24 @@ function Shape(props) {
         componentData,
         id
     } = props
+
+    const selectCurComponent = e => {
+        e.stopPropagation()
+        e.preventDefault()
+        const payload = {
+            curComponent: element,
+            curComponentZIndex: zIndex,
+        }
+        // 选中当前组件
+        dispatch(selectComponent(payload))
+    },
+
+    // 拖动组件方法
     const handleMouseDown = e => {
         if (element.icon != 'el-icon-edit') {
             e.preventDefault()
         }
         e.stopPropagation()
-        const payload = {
-            curComponent: element,
-            curComponentZIndex: zIndex,
-        }
-        dispatch(selectComponent(payload))
         if (!curComponent) return
         const pos = { ...defaultStyle }
         const startY = e.clientY
@@ -67,7 +75,7 @@ function Shape(props) {
         document.addEventListener('mouseup', up)
     }
     return (
-        <div className={cn(s.shape, active ? s.active: '' )} style={style} onMouseDown={handleMouseDown}>
+        <div className={cn(s.shape, active ? s.active: '' )} style={style} onClick={selectCurComponent} onMouseDown={handleMouseDown}>
             {
                 React.Children.map(children, item => item)
             }
