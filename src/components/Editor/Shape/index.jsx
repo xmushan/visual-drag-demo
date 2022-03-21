@@ -29,7 +29,7 @@ function Shape(props) {
         }
         // 选中当前组件
         dispatch(selectComponent(payload))
-    },
+    }
 
     // 拖动组件方法
     const handleMouseDown = e => {
@@ -60,9 +60,7 @@ function Shape(props) {
             if (left) dComponent.style.left = left
             if (width) dComponent.style.width = width
             if (height) dComponent.style.height = height
-            // TODO
             const componentIndex = findIndex(id,'id',componentData)
-            // 这个地方有问题 
             dcomponentData[componentIndex] = dComponent
             dispatch(setShapeStyle(dcomponentData))
         }
