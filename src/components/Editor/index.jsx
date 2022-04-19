@@ -7,6 +7,7 @@ import s from './index.scss'
 function Editor(props){
     const { canvasStyleData,componentData,curComponent } = props
     return (
+
         
         <div 
             className={s.editor}
